@@ -1,8 +1,10 @@
-import React from 'react'
-import styled from 'styled-components'
-import { NavLink } from 'react-router-dom'
+import React from 'react';
+import styled from 'styled-components';
+import { NavLink, useLocation } from 'react-router-dom';
 
 export default function Header() {
+  const location = useLocation();
+
   return (
     <div>
       <nav>
@@ -13,6 +15,8 @@ export default function Header() {
           <StyleNavLink to="/support">고객 지원</StyleNavLink>
           <StyleNavLink to="/usage">고객 사례</StyleNavLink>
           <StyleNavLink to="/introduceUs">기업 소개</StyleNavLink>
+
+          {location.pathname !=='/' && <SytleButton>로그인</SytleButton>}
         </StyledHeader>
       </nav>
     </div>
@@ -26,8 +30,8 @@ const StyledHeader = styled.header`
 const StyleNavLink = styled(NavLink)`
   width: 16%;
   background: white;
+  margin-botton: 10px;
   padding: 1em;
-  color: inherit;
   color: #555;
   font-weight: bold;
   text-decoration: none;
@@ -35,6 +39,24 @@ const StyleNavLink = styled(NavLink)`
 
   :hover {
     background: lightgrey;
+    border-radius: 0.5rem;
+    color: black;
+    transition: 0.5s;
+  }
+`;
+
+const SytleButton = styled.button`
+  width: 16%;
+  background: white;
+  border: none;
+  padding: 1em;
+  color: #555;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+
+  :hover {
+    background: lightblue;
     border-radius: 0.5rem;
     color: black;
     transition: 0.5s;

@@ -6,6 +6,7 @@ import Product from '../components/Product';
 import Price from '../components/Price';
 import Support from '../components/Support';
 import Usage from '../components/Usage';
+import Footer from "../components/Footer";
 
 function App() {
   const location = useLocation();
@@ -22,6 +23,8 @@ function App() {
         <Route path="/support" element={<Support />} />
         <Route path="/usage" element={<Usage />} />
       </Routes>
+
+      <Footer />
     </>
   );
 }
